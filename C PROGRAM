@@ -1,0 +1,16 @@
+#include <stdio.h>
+int main() {
+    int bt[] = {10, 5, 8}, rem[] = {10, 5, 8}, q = 2, t = 0, n = 3, done = 0;
+    while (!done) {
+        done = 1;
+        for (int i = 0; i < n; i++) {
+            if (rem[i] > 0) {
+                done = 0;
+                t += (rem[i] > q) ? q : rem[i];
+                rem[i] -= (rem[i] > q) ? q : rem[i];
+                if (!rem[i]) printf("P%d finished at %d\n", i + 1, t);
+            }
+        }
+    }
+    return 0;
+}
